@@ -18,12 +18,12 @@ void new_queue(stack_t **head, int i)
 	}
 	new_node->n = i;
 	new_node->next = NULL;
-	if (temp != NULL)
+	if (temp)
 	{
 		while (temp->next)
 			temp = temp->next;
 	}
-	if (temp == NULL)
+	if (!temp)
 	{
 		*head = new_node;
 		new_node->prev = NULL;

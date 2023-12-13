@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	}
 	file = fopen(argv[1], "r");
 	Op.file = file;
-	if (file == NULL)
+	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);

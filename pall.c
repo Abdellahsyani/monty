@@ -10,11 +10,10 @@
 void pall_y(stack_t **head, unsigned int element)
 {
 	stack_t *temp;
-
-	temp = *head;
 	(void)element;
 
-	while (temp != NULL)
+	temp = *head;
+	while (temp)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
