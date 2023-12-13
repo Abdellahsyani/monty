@@ -60,5 +60,6 @@ void pall_y(stack_t **head, unsigned int element);
 void push_y(stack_t **head, unsigned int element);
 void new_node(stack_t **head, int i);
 void new_queue(stack_t **head, int i);
+void pint_y(stack_t **head, unsigned int  element);
 void free_2D(stack_t *head);
 #endif
