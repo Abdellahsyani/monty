@@ -2,7 +2,6 @@
 #include "monty.h"
 #include <stdio.h>
 #include <stdlib.h>
-stack_at Op = {NULL, NULL, NULL, 0};
 /**
  * main - entry point.
  * @argc: the value.
