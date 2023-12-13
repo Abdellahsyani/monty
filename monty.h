@@ -1,6 +1,5 @@
 #ifndef MONTY_H
 #define MONTY_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -36,3 +35,30 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct stack_in - variables -args, file, line content
+ * @argv: the value to list
+ * @file: pointer to monty file
+ * @content: line content
+ * @var: the value to change stack <-> queue
+ * Description: carries values through the program
+ */
+typedef struct stack_in
+{
+	char *argv;
+	FILE *file;
+	char *content;
+	int var;
+} stack_at;
+
+extern stack_at Op;
+
+/**the function of all my file */
+int main(int argc, char *argv[]);
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
+void pall_y(stack_t **head, unsigned int element);
+void push_y(stack_t **head, unsigned int element);
+void new_node(stack_t **head, int i);
+void new_queue(stack_t **head, int i);
+void free_2D(stack_t *head);
+#endif
