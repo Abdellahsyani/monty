@@ -1,36 +1,35 @@
 #include "monty.h"
-
 /**
- * new_queue - the function to add a queue.
- * @head: the head of the list.
- * @i: the data value .
- */
-
-void new_queue(stack_t **head, int i)
+* addqueue - add node to the tail stack
+* @n: new_value
+* @head: head of the stack
+* Return: no return
+*/
+void addqueue(stack_t **head, int n)
 {
-	stack_t *new_node, *temp;
+	stack_t *new_node, *aux;
 
-	temp = *head;
+	aux = *head;
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
 		printf("Error\n");
 	}
-	new_node->n = i;
+	new_node->n = n;
 	new_node->next = NULL;
-	if (temp)
+	if (aux)
 	{
-		while (temp->next)
-			temp = temp->next;
+		while (aux->next)
+			aux = aux->next;
 	}
-	if (!temp)
+	if (!aux)
 	{
 		*head = new_node;
 		new_node->prev = NULL;
 	}
 	else
 	{
-		temp->next = new_node;
-		new_node->prev = temp;
+		aux->next = new_node;
+		new_node->prev = aux;
 	}
 }

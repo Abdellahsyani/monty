@@ -5,7 +5,7 @@
  * @head: the head of the list.
  */
 
-void free_2D(stack_t *head)
+void free_stack(stack_t *head)
 {
 	stack_t *temp;
 

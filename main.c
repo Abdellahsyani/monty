@@ -2,22 +2,21 @@
 #include "monty.h"
 #include <stdio.h>
 #include <stdlib.h>
-stack_at Op = {NULL, NULL, NULL, 0};
+bus_t bus = {NULL, NULL, NULL, 0};
 /**
- * main - entry point.
- * @argc: the value.
- * @argv: the vector
- * Return: 0 if seccess.
+ * main - monty code interpreter
+ * @argc: number of arguments
+ * @argv: monty file location
+ * Return: 0 on success
  */
-
 int main(int argc, char *argv[])
 {
 	char *content;
 	FILE *file;
 	size_t size = 0;
-	ssize_t n_char = 1;
+	ssize_t read_line = 1;
 	stack_t *stack = NULL;
-	unsigned int count = 0;
+	unsigned int counter = 0;
 
 	if (argc != 2)
 	{
@@ -25,25 +24,25 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
-	Op.file = file;
+	bus.file = file;
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (n_char > 0)
+	while (read_line > 0)
 	{
 		content = NULL;
-		n_char = getline(&content, &size, file);
-		Op.content = content;
-		content++;
-		if (n_char > 0)
+		read_line = getline(&content, &size, file);
+		bus.content = content;
+		counter++;
+		if (read_line > 0)
 		{
-			execute(content, &stack, count, file);
+			execute(content, &stack, counter, file);
 		}
 		free(content);
 	}
-	free_2D(stack);
+	free_stack(stack);
 	fclose(file);
-return (0);
+	return (0);
 }
