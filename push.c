@@ -1,37 +1,36 @@
 #include "monty.h"
 /**
- * f_push - add node to the stack
+ * push_y - add node to the stack
  * @head: stack head
- * @counter: line_number
- * Return: no return
+ * @element: line_number
  */
-void f_push(stack_t **head, unsigned int counter)
+void push_y(stack_t **head, unsigned int element)
 {
 	int n, j = 0, flag = 0;
 
-	if (bus.arg)
+	if (lifo.vector)
 	{
-		if (bus.arg[0] == '-')
+		if (lifo.vector[0] == '-')
 			j++;
-		for (; bus.arg[j] != '\0'; j++)
+		for (; lifo.vector[j] != '\0'; j++)
 		{
-			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+			if (lifo.vector[j] > 57 || lifo.vector[j] < 48)
 				flag = 1; }
 		if (flag == 1)
-		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
-			fclose(bus.file);
-			free(bus.content);
-			free_stack(*head);
+		{ fprintf(stderr, "L%d: usage: push integer\n", element);
+			fclose(lifo.file);
+			free(lifo.content);
+			free_2D(*head);
 			exit(EXIT_FAILURE); }}
 	else
-	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
-		fclose(bus.file);
-		free(bus.content);
-		free_stack(*head);
+	{ fprintf(stderr, "L%d: usage: push integer\n", element);
+		fclose(lifo.file);
+		free(lifo.content);
+		free_2D(*head);
 		exit(EXIT_FAILURE); }
-	n = atoi(bus.arg);
-	if (bus.lifi == 0)
-		addnode(head, n);
+	n = atoi(lifo.vector);
+	if (lifo.var == 0)
+		new_node(head, n);
 	else
-		addqueue(head, n);
+		new_queue(head, n);
 }

@@ -2,11 +2,11 @@
 #include "monty.h"
 #include <stdio.h>
 #include <stdlib.h>
-bus_t bus = {NULL, NULL, NULL, 0};
+stack_at lifo = {NULL, NULL, NULL, 0};
 /**
- * main - monty code interpreter
+ * main - monty code interpreter and entry point
  * @argc: number of arguments
- * @argv: monty file location
+ * @argv: the vector
  * Return: 0 on success
  */
 int main(int argc, char *argv[])
@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
 	char *content;
 	FILE *file;
 	size_t size = 0;
-	ssize_t read_line = 1;
+	ssize_t read = 1;
 	stack_t *stack = NULL;
-	unsigned int counter = 0;
+	unsigned int count = 0;
 
 	if (argc != 2)
 	{
@@ -24,25 +24,25 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
-	bus.file = file;
+	lifo.file = file;
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (read_line > 0)
+	while (read > 0)
 	{
 		content = NULL;
-		read_line = getline(&content, &size, file);
-		bus.content = content;
-		counter++;
-		if (read_line > 0)
+		read = getline(&content, &size, file);
+		lifo.content = content;
+		count++;
+		if (read > 0)
 		{
-			execute(content, &stack, counter, file);
+			execute(content, &stack, count, file);
 		}
 		free(content);
 	}
-	free_stack(stack);
+	free_2D(stack);
 	fclose(file);
 	return (0);
 }
