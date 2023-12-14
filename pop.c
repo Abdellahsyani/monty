@@ -16,7 +16,7 @@ void pop_y(stack_t **head, unsigned int element)
 		free(lifo.content);
 		free_2D(*head);
 		exit(EXIT_FAILURE);
-	
+	}
 	temp = *head;
 	*head = temp->next;
 	free(temp);
