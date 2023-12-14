@@ -30,12 +30,11 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (read > 0)
+	for (count = 1; read > 0; count++)
 	{
 		content = NULL;
 		read = getline(&content, &size, file);
 		lifo.content = content;
-		count++;
 		if (read > 0)
 		{
 			execute(content, &stack, count, file);

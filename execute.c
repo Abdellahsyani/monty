@@ -22,13 +22,12 @@ int execute(char *content, stack_t **stack, unsigned int count, FILE *file)
 	if (object && object[0] == '#')
 		return (0);
 	lifo.vector = strtok(NULL, " \n\t");
-	while (opst[i].opcode && object)
+	for (i = 0; opst[i].opcode && object; i++)
 	{
 		if (strcmp(object, opst[i].opcode) == 0)
 		{	opst[i].f(stack, count);
 			return (0);
 		}
-		i++;
 	}
 	if (object && opst[i].opcode == NULL)
 	{ fprintf(stderr, "L%d: unknown instruction %s\n", count, object);
