@@ -60,7 +60,7 @@ void pint_y(stack_t **head, unsigned int element);
 int execute(char *content, stack_t **head, unsigned int count, FILE *file);
 void free_2D(stack_t *head);
 void pop_y(stack_t **head, unsigned int element);
-void f_swap(stack_t **head, unsigned int counter);
+void swap_y(stack_t **head, unsigned int element);
 void f_add(stack_t **head, unsigned int counter);
 void f_nop(stack_t **head, unsigned int counter);
 void f_sub(stack_t **head, unsigned int counter);
