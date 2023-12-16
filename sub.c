@@ -8,7 +8,7 @@
 void sub_y(stack_t **head, unsigned int element)
 {
 	stack_t *temp;
-	int len = 0, cut;
+	int len, cut;
 
 	temp = *head;
 	while (temp)
