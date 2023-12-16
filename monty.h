@@ -63,7 +63,7 @@ void pop_y(stack_t **head, unsigned int element);
 void swap_y(stack_t **head, unsigned int element);
 void add_y(stack_t **head, unsigned int counter);
 void nop_y(stack_t **head, unsigned int element);
-void f_sub(stack_t **head, unsigned int counter);
+void sub_y(stack_t **head, unsigned int counter);
 void f_div(stack_t **head, unsigned int counter);
 void f_mul(stack_t **head, unsigned int counter);
 void f_mod(stack_t **head, unsigned int counter);
