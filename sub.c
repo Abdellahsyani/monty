@@ -11,10 +11,9 @@ void sub_y(stack_t **head, unsigned int element)
 	int len, cut;
 
 	temp = *head;
-	while (temp)
+	for (len = 0; temp != NULL; len++)
 	{
 		temp = temp->next;
-		len++;
 	}
 	if (len < 2)
 	{
